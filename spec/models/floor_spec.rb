@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Floor, type: :model do
   describe 'Validations' do
     it {should validate_presence_of :level}
+    it {should validate_uniqueness_of :level}
     it {should validate_presence_of :width}
     it {should validate_presence_of :length}
   end
