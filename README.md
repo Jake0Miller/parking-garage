@@ -1,6 +1,6 @@
 # Production Link
 
-[Parking Garage](https://also-parking-garage.herokuapp.com/
+[Parking Garage](https://also-parking-garage.herokuapp.com/)
 
 # Introduction
 
