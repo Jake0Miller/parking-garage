@@ -1,24 +1,30 @@
-# README
+# Introduction
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is intended to simulate a multi-level parking structure. Each level has several parking spots which come in three sizes: motorcycle, compact, or large.
 
-Things you may want to cover:
+Motorcycles can park in any type of spot. Cars can park in compact or large spots. A bus can park in five consecutive large spots.
 
-* Ruby version
+# Functionality
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+# Setup
 
-* Database initialization
+Setup database
+`rails db:{create,migrate,seed}`
 
-* How to run the test suite
+# Testing
 
-* Services (job queues, cache servers, search engines, etc.)
+Run tests with
+`rspec`
 
-* Deployment instructions
+# Tech Stack
 
-* ...
+* Ruby v2.4.1
+* Rails v5.2.3
+* PostgreSQL v11.5
+* RSpec testing suite
+
+# Core Contributors
+
+[Jake Miller](https://github.com/Jake0Miller)
