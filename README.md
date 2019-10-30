@@ -10,9 +10,9 @@ A Structure has three dimensions: height (number of floors), width (number of ro
 
 A Floor has two dimensions: width and length. In the database, a Floor has many Rows and belongs to a Structure.
 
-A Row has one dimension: length. In the database, a Row has many Spots and belongs to a Floor.
+A Row has one dimension: length. In the database, a Row has many Spots and belongs to a Floor. Each row has a unique letter identifying its position on its floor.
 
-A Spot has one of the following widths: 2 for motorcycle, 3 for compact, 4 for large. In the database, a Spot belongs to a Vehicle (nil if not currently occupied).
+A Spot has one of the following widths: 2 for motorcycle, 3 for compact, 4 for large. In the database, a Spot belongs to a Vehicle (nil if not currently occupied). Each spot has a unique number identifying its position in its row.
 
 A Vehicle has one of the following widths: 2 for motorcycle, 3 for car, 4 for bus. In the database, a Vehicle has one spot if it is a motorcycle or a car, and has many spots (5) if it is a bus.
 
