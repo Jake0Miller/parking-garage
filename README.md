@@ -20,8 +20,12 @@ A Structure can track the total fare it receives from motorcycles, cars, and bus
 
 # Setup
 
+Gemfile dependencies `bundle install`
+
 Setup database
 `rails db:{create,migrate}`
+
+Run server `rails s`
 
 # Testing
 
