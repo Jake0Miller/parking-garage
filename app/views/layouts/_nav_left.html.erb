@@ -1,0 +1,14 @@
+<a class="navbar-brand mb-0 h1" href="/">ParkingGarage</a>
+
+<% if current_user %>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/structures">Browse</a>
+    </li>
+    <% if admin? %>
+      <li class="nav-item">
+        <a class="nav-link" href="/structures/new">Build</a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

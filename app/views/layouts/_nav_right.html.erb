@@ -1,0 +1,14 @@
+<ul class="navbar-nav ml-auto">
+
+  <% if current_user %>
+    <span class="navbar-brand mb-0 h1">Welcome, <%= current_user.capitalize %></span>
+    <li class="nav-item">
+      <%= link_to 'Logout', logout_path, class:"nav-link" %>
+    </li>
+  <% else %>
+    <li class="nav-item">
+      <%= link_to 'Login', root_path, class:"nav-link" %>
+    </li>
+  <% end %>
+
+</ul>

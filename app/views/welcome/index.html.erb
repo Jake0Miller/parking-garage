@@ -1,0 +1,26 @@
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Parking Garage</h1>
+  <p class="lead">Motorcycles, cars, and buses, oh my!</p>
+  <hr class="my-4">
+
+  <% if current_user %>
+    <p>Please view our available resources:</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/structures" role="button">Browse</a>
+    </p>
+    <% if admin? %>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/structures/new" role="button">Build</a>
+      </p>
+    <% end %>
+  <% else %>
+    <p>Please log in by selecting a role:</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/login?role=admin" role="button">Parking Admin</a>
+    </p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/login?role=visitor" role="button">Parking Visitor</a>
+    </p>
+  <% end %>
+
+</div>
