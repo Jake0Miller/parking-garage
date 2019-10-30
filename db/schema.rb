@@ -10,15 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_30_051827) do
+ActiveRecord::Schema.define(version: 2019_10_30_052557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "structures", force: :cascade do |t|
-    t.integer "height"
+  create_table "floors", force: :cascade do |t|
+    t.integer "level"
     t.integer "width"
     t.integer "length"
+    t.bigint "structure_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["structure_id"], name: "index_floors_on_structure_id"
   end
 
+  create_table "structures", force: :cascade do |t|
+    t.integer "height", default: 1
+    t.integer "width"
+    t.integer "length"
+    t.float "m_fare", default: 5.0
+    t.float "m_revenue", default: 0.0
+    t.float "c_fare", default: 5.0
+    t.float "c_revenue", default: 0.0
+    t.float "b_fare", default: 5.0
+    t.float "b_revenue", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "floors", "structures"
 end
