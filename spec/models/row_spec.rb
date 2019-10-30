@@ -7,6 +7,7 @@ RSpec.describe Row, type: :model do
   end
 
   describe 'Relationships' do
+    it {should belong_to :floor}
     it {should have_many :spots}
   end
 end
