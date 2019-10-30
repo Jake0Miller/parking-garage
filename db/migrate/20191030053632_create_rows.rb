@@ -4,6 +4,8 @@ class CreateRows < ActiveRecord::Migration[5.2]
       t.string :letter
       t.integer :length
       t.references :floor, foreign_key: true
+
+      t.timestamps
     end
   end
 end

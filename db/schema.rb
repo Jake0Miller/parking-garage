@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_30_053632) do
+ActiveRecord::Schema.define(version: 2019_10_30_055618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,20 @@ ActiveRecord::Schema.define(version: 2019_10_30_053632) do
     t.string "letter"
     t.integer "length"
     t.bigint "floor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["floor_id"], name: "index_rows_on_floor_id"
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.integer "number"
+    t.integer "width"
+    t.bigint "row_id"
+    t.bigint "vehicle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["row_id"], name: "index_spots_on_row_id"
+    t.index ["vehicle_id"], name: "index_spots_on_vehicle_id"
   end
 
   create_table "structures", force: :cascade do |t|
@@ -46,6 +59,14 @@ ActiveRecord::Schema.define(version: 2019_10_30_053632) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "vehicles", force: :cascade do |t|
+    t.integer "width"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "floors", "structures"
   add_foreign_key "rows", "floors"
+  add_foreign_key "spots", "rows"
+  add_foreign_key "spots", "vehicles"
 end
