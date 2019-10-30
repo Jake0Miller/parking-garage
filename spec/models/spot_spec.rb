@@ -8,6 +8,6 @@ RSpec.describe Spot, type: :model do
 
   describe 'Relationships' do
     it {should belong_to :row}
-    it {should belong_to :vehicle}
+    it {should belong_to(:vehicle).optional}
   end
 end
