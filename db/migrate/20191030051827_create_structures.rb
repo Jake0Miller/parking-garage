@@ -1,6 +1,7 @@
 class CreateStructures < ActiveRecord::Migration[5.2]
   def change
     create_table :structures do |t|
+      t.string :name, unique: true
       t.integer :height, default: 1
       t.integer :width
       t.integer :length

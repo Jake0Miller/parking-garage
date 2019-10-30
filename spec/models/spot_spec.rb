@@ -13,7 +13,7 @@ RSpec.describe Spot, type: :model do
 
   describe 'Uniqueness' do
     it 'cannot have two spots in the same row with the same number' do
-      structure = Structure.create!(height: 3, width: 10, length: 10)
+      structure = Structure.create!(name: 'One', height: 3, width: 10, length: 10)
       floor_1 = structure.floors.create!(level: 1, width: 10, length: 10)
       row_1 = floor_1.rows.create!(letter: 'A', length: 10)
       row_1.spots.create!(number: 1, width: 2)

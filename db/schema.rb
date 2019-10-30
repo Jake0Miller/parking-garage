@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_055618) do
   end
 
   create_table "structures", force: :cascade do |t|
+    t.string "name"
     t.integer "height", default: 1
     t.integer "width"
     t.integer "length"

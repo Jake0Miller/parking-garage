@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Floor, type: :model do
   describe 'Validations' do
     it {should validate_presence_of :level}
-    it {should validate_uniqueness_of :level}
     it {should validate_presence_of :width}
     it {should validate_presence_of :length}
   end
@@ -15,19 +14,18 @@ RSpec.describe Floor, type: :model do
 
   describe 'Uniqueness' do
     it 'cannot have two floors on the same level' do
-      structure = Structure.create!(height: 3, width: 10, length: 10)
+      structure_1 = Structure.create!(name: 'One', height: 3, width: 10, length: 10)
+      structure_1.floors.create!(level: 1, width: 10, length: 10)
+      structure_2 = Structure.create!(name: 'Two', height: 3, width: 10, length: 10)
+      structure_2.floors.create!(level: 1, width: 10, length: 10)
 
-      expect(Floor.count).to eq(0)
+      expect(Floor.count).to eq(2)
 
-      structure.floors.create!(level: 1, width: 10, length: 10)
-
-      expect(Floor.count).to eq(1)
-
-      floor = structure.floors.new(level: 1, width: 10, length: 10)
+      floor = structure_1.floors.new(level: 1, width: 10, length: 10)
       expect(floor).to_not be_valid
       expect(floor.errors[:level]).to include("has already been taken")
 
-      expect(Floor.count).to eq(1)
+      expect(Floor.count).to eq(2)
     end
   end
 end

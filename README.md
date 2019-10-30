@@ -4,9 +4,9 @@ This app is intended to simulate a multi-level parking structure. Each level has
 
 Motorcycles can park in any type of spot. Cars can park in compact or large spots. A bus can park in five consecutive large spots.
 
-# Design
+# Database Models
 
-A Structure has three dimensions: height (number of floors), width (number of rows per floor), and length (determines the number of spots that will fit in each row). In the relational database, a Structure has many Floors.
+A Structure has three dimensions: height (number of floors), width (number of rows per floor), and length (determines the number of spots that will fit in each row). In the relational database, a Structure has many Floors. Each Structure also has a unique name.
 
 A Floor has two dimensions: width and length. In the database, a Floor has many Rows and belongs to a Structure.
 
