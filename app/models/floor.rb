@@ -1,6 +1,6 @@
 class Floor < ApplicationRecord
   validates_presence_of :level, :width, :length
-  validates :level, uniqueness: true
+  validates_uniqueness_of :level
   belongs_to :structure
   has_many :rows
 end
