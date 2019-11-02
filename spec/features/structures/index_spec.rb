@@ -32,6 +32,7 @@ RSpec.describe 'Structures index' do
 
     within ".building-#{@structure_1.id}" do
       expect(page).to have_content("Name: " + @structure_1.name)
+      expect(page).to have_link(@structure_1.name)
     end
   end
 
@@ -51,6 +52,7 @@ RSpec.describe 'Structures index' do
 
     within ".building-#{@structure_1.id}" do
       expect(page).to have_content("Name: " + @structure_1.name)
+      expect(page).to have_link(@structure_1.name)
     end
   end
 end

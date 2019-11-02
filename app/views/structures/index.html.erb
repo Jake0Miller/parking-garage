@@ -2,6 +2,6 @@
 
 <% @structures.each do |structure| %>
   <div class="building-<%= structure.id %>">
-    <h2 class="building">Name: <%= structure.name %></h2>
+    <h2 class="building">Name: <%= link_to structure.name, structure_path(structure) %></h2>
   </div>
 <% end %>
