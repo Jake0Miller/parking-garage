@@ -6,14 +6,6 @@ RSpec.describe 'Structures show' do
       height: 5, width: 10, length: 100,
       m_fare: 5, c_fare: 10, b_fare: 25,
       m_revenue: 0, c_revenue: 0, b_revenue: 0)
-    @structure_2 = Structure.create!(name: 'Building B',
-      height: 5, width: 10, length: 100,
-      m_fare: 5, c_fare: 10, b_fare: 25,
-      m_revenue: 0, c_revenue: 0, b_revenue: 0)
-    @structure_3 = Structure.create!(name: 'Building C',
-      height: 5, width: 10, length: 100,
-      m_fare: 5, c_fare: 10, b_fare: 25,
-      m_revenue: 0, c_revenue: 0, b_revenue: 0)
   end
 
   it 'I can see a structure as a visitor' do
@@ -28,6 +20,7 @@ RSpec.describe 'Structures show' do
     click_on @structure_1.name
 
     expect(page).to have_content(@structure_1.name)
+    expect(page).to have_content("Number of Floors: #{@structure_1.height}")
   end
 
   it 'I can see a structure as an admin' do
@@ -39,6 +32,9 @@ RSpec.describe 'Structures show' do
       click_on 'Browse'
     end
 
+    click_on @structure_1.name
+
     expect(page).to have_content(@structure_1.name)
+    expect(page).to have_content("Number of Floors: #{@structure_1.height}")
   end
 end
