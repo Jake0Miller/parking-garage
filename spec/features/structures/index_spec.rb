@@ -27,8 +27,12 @@ RSpec.describe 'Structures index' do
       click_on 'Browse'
     end
 
-    expect(current_path).to eq(structures_index_path)
+    expect(current_path).to eq(structures_path)
     expect(page).to have_css('.building', count: 3)
+
+    within ".building-#{@structure_1.id}" do
+      expect(page).to have_content("Name: " + @structure_1.name)
+    end
   end
 
   it 'I can see all structures as an admin' do
@@ -42,7 +46,11 @@ RSpec.describe 'Structures index' do
       click_on 'Browse'
     end
 
-    expect(current_path).to eq(structures_index_path)
+    expect(current_path).to eq(structures_path)
     expect(page).to have_css('.building', count: 3)
+
+    within ".building-#{@structure_1.id}" do
+      expect(page).to have_content("Name: " + @structure_1.name)
+    end
   end
 end
