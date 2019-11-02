@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+@structure_1 = Structure.create!(name: 'Building A',
+  height: 5, width: 10, length: 100,
+  m_fare: 5, c_fare: 10, b_fare: 25,
+  m_revenue: 0, c_revenue: 0, b_revenue: 0)
+@structure_2 = Structure.create!(name: 'Building B',
+  height: 5, width: 10, length: 100,
+  m_fare: 5, c_fare: 10, b_fare: 25,
+  m_revenue: 0, c_revenue: 0, b_revenue: 0)
+@structure_3 = Structure.create!(name: 'Building C',
+  height: 5, width: 10, length: 100,
+  m_fare: 5, c_fare: 10, b_fare: 25,
+  m_revenue: 0, c_revenue: 0, b_revenue: 0)
