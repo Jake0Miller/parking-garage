@@ -27,7 +27,7 @@ RSpec.describe 'Structures show' do
 
     click_on @structure_1.name
 
-    expect(page).to have_content("Name: " + @structure_1.name)
+    expect(page).to have_content(@structure_1.name)
   end
 
   it 'I can see a structure as an admin' do
@@ -39,6 +39,6 @@ RSpec.describe 'Structures show' do
       click_on 'Browse'
     end
 
-    expect(page).to have_content("Name: " + @structure_1.name)
+    expect(page).to have_content(@structure_1.name)
   end
 end
