@@ -8,6 +8,10 @@
     <div class="card-content">
       <div class="card-header">
         <h2 class="card-title text-center">Number of Floors: <%= @structure.height %></h2>
+        <%= form_for @structure, :url => floor_path do |f| %>
+          <%= f.collection_select :height, (1..@structure.height), :to_s, :to_s %>
+          <%= f.submit 'View', class: "btn btn-primary" %>
+        <% end %>
       </div>
 
       <% if admin? %>
