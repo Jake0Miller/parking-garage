@@ -1,4 +1,4 @@
-class Admin::StructuresController < ApplicationController
+class Admin::StructuresController < Admin::BaseController
   def new
     @structure = Structure.new
   end
