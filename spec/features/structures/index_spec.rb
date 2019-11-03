@@ -3,15 +3,15 @@ require 'rails_helper'
 RSpec.describe 'Structures index' do
   before :each do
     @structure_1 = Structure.create!(name: 'Building A',
-      height: 5, width: 10, length: 100,
+      height: 2, width: 3, length: 10,
       m_fare: 5, c_fare: 10, b_fare: 25,
       m_revenue: 0, c_revenue: 0, b_revenue: 0)
     @structure_2 = Structure.create!(name: 'Building B',
-      height: 5, width: 10, length: 100,
+      height: 2, width: 3, length: 10,
       m_fare: 5, c_fare: 10, b_fare: 25,
       m_revenue: 0, c_revenue: 0, b_revenue: 0)
     @structure_3 = Structure.create!(name: 'Building C',
-      height: 5, width: 10, length: 100,
+      height: 2, width: 3, length: 10,
       m_fare: 5, c_fare: 10, b_fare: 25,
       m_revenue: 0, c_revenue: 0, b_revenue: 0)
   end

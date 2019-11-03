@@ -5,7 +5,7 @@ RSpec.describe 'Structures show' do
 
   before :each do
     @structure_1 = Structure.create!(name: 'Building A',
-      height: 5, width: 10, length: 100,
+      height: 25, width: 3, length: 10,
       m_fare: 5, c_fare: 10, b_fare: 25,
       m_revenue: 100, c_revenue: 150, b_revenue: 125)
   end

@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Structures create' do
   before :each do
     @name = 'Building A'
-    @height = 6
-    @width = 2
-    @length = 40
+    @height = 2
+    @width = 3
+    @length = 10
     @m_fare = 5.0
     @c_fare = 8.0
     @b_fare = 15.0
