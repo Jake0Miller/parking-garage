@@ -1,6 +1,4 @@
-<div class='title'>
-  <h1>Select a Parking Structure</h1>
-</div>
+<h1 class='title'>Select a Parking Structure</h1>
 
 <section class="details-card">
   <div class="container-fluid">
@@ -8,7 +6,7 @@
       <div class="card-content building">
         <div class="building-<%= structure.id %>">
           <div class="card-header">
-            <h2 class="card-title text-center">Name: <%= link_to structure.name, structure_path(structure) %></h2>
+            <h2 class="card-title text-center"><%= link_to structure.name, structure_path(structure) %></h2>
           </div>
         </div>
       </div>

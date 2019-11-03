@@ -4,8 +4,6 @@ class Admin::BaseController < ApplicationController
   private
 
   def require_admin
-    unless admin?
-      render file: '/public/404', status: 404, layout: false
-    end
+    redirect_to root_path unless admin?
   end
 end

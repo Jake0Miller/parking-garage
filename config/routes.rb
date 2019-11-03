@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :structures, only: [:index, :show]
 
+  namespace :admin do
+    resources :structures, only: [:new, :create]
+  end
+
   get '/login', to: 'sessions#create', as: :login
   get '/logout', to: 'sessions#destroy', as: :logout
 
