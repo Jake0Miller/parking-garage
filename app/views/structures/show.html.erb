@@ -1,0 +1,18 @@
+<div class="building-<%= @structure.id %>">
+  <h1 class="building"><%= @structure.name %></h1>
+</div>
+
+<img src="http://clipart-library.com/img/1319776.gif">
+
+<h2>Number of Floors: <%= @structure.height %></h2>
+
+<% if admin? %>
+  <h3>Parking Rates:</h3>
+  <h4>Motorcycle: <%= number_to_currency(@structure.m_fare) %></h4>
+  <h4>Car: <%= number_to_currency(@structure.c_fare) %></h4>
+  <h4>Bus: <%= number_to_currency(@structure.b_fare) %></h4>
+  <h3>Total Revenue: <%= number_to_currency(@structure.total_revenue) %></h3>
+  <h4>Motorcycle Revenue: <%= number_to_currency(@structure.m_revenue) %></h4>
+  <h4>Car Revenue: <%= number_to_currency(@structure.c_revenue) %></h4>
+  <h4>Bus Revenue: <%= number_to_currency(@structure.b_revenue) %></h4>
+<% end %>
