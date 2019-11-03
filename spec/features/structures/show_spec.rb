@@ -43,5 +43,8 @@ RSpec.describe 'Structures show' do
     expect(page).to have_content("Car: #{number_to_currency(@structure_1.c_fare)}")
     expect(page).to have_content("Bus: #{number_to_currency(@structure_1.b_fare)}")
     expect(page).to have_content("Total Revenue: #{number_to_currency(@structure_1.total_revenue)}")
+    expect(page).to have_content("Motorcycle Revenue: #{number_to_currency(@structure_1.m_revenue)}")
+    expect(page).to have_content("Car Revenue: #{number_to_currency(@structure_1.c_revenue)}")
+    expect(page).to have_content("Bus Revenue: #{number_to_currency(@structure_1.b_revenue)}")
   end
 end
