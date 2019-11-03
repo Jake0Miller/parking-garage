@@ -13,20 +13,19 @@ RSpec.describe Spot, type: :model do
 
   describe 'Uniqueness' do
     it 'cannot have two spots in the same row with the same number' do
-      structure = Structure.create!(name: 'One', height: 3, width: 10, length: 10)
-      floor_1 = structure.floors.create!(level: 1, width: 10, length: 10)
-      row_1 = floor_1.rows.create!(letter: 'A', length: 10)
-      row_1.spots.create!(number: 1, width: 2)
-      row_2 = floor_1.rows.create!(letter: 'B', length: 10)
-      row_2.spots.create!(number: 1, width: 2)
+      structure = Structure.create!(name: 'One', height: 2, width: 3, length: 10)
+      floor_1 = structure.floors.first
+      row_1 = floor_1.rows.first
 
-      expect(Spot.count).to eq(2)
+      expect(row_1.spots.length).to eq(4)
+      expect(Spot.count).to eq(24)
 
-      spot = row_2.spots.new(number: 1, width: 3)
+      spot = row_1.spots.new(number: 1, width: 2)
+
       expect(spot).to_not be_valid
       expect(spot.errors[:number]).to include("has already been taken")
-
-      expect(Spot.count).to eq(2)
+      expect(spot.save).to eq(false)
+      expect(Spot.count).to eq(24)
     end
   end
 end
