@@ -4,6 +4,7 @@
 
 <section class="details-card">
   <% @floor.rows.each do |row| %>
+    <p>Row <%= row.letter %></p>
     <% row.spots.each do |spot| %>
       <% if spot.vehicle.nil? %>
         ⒳
