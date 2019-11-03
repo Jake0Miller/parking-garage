@@ -8,14 +8,14 @@
 
 
 @structure_1 = Structure.create!(name: 'Building A',
-  height: 5, width: 10, length: 100,
+  height: 2, width: 3, length: 20,
   m_fare: 5, c_fare: 10, b_fare: 25,
   m_revenue: 0, c_revenue: 0, b_revenue: 0)
 @structure_2 = Structure.create!(name: 'Building B',
-  height: 5, width: 10, length: 100,
+  height: 3, width: 3, length: 30,
   m_fare: 5, c_fare: 10, b_fare: 25,
   m_revenue: 0, c_revenue: 0, b_revenue: 0)
 @structure_3 = Structure.create!(name: 'Building C',
-  height: 5, width: 10, length: 100,
+  height: 4, width: 3, length: 22,
   m_fare: 5, c_fare: 10, b_fare: 25,
   m_revenue: 0, c_revenue: 0, b_revenue: 0)
