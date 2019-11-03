@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index', as: :root
 
   resources :structures, only: [:index, :show]
+  resources :floors, only: [:show]
 
   namespace :admin do
     resources :structures, only: [:new, :create]

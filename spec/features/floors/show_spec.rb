@@ -14,7 +14,9 @@ RSpec.describe 'Floor show' do
     expect(page).to have_content(@structure_1.name)
     expect(page).to have_content("Number of Floors: #{@structure_1.height}")
 
-    select '1', :from => "floors"
+    select '1', :from => "structure[height]"
+
+    click_on 'View'
 
     expect(current_path).to eq(floor_path(@structure_1.floors.first))
   end
@@ -25,6 +27,10 @@ RSpec.describe 'Floor show' do
     expect(page).to have_content(@structure_1.name)
     expect(page).to have_content("Number of Floors: #{@structure_1.height}")
 
-    select '1', :from => "floors"
+    select '1', :from => "structure[height]"
+
+    click_on 'View'
+
+    expect(current_path).to eq(floor_path(@structure_1.floors.first))
   end
 end
