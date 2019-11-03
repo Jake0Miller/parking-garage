@@ -17,8 +17,9 @@ RSpec.describe 'Floor show' do
     select '1', :from => "floor[height]"
 
     click_on 'View'
-    
+
     expect(current_path).to eq(structure_floor_path(@structure_1, @structure_1))
+    expect(page).to have_content("Floor 1")
   end
 
   it 'I can see a structure as an admin' do
@@ -32,5 +33,6 @@ RSpec.describe 'Floor show' do
     click_on 'View'
 
     expect(current_path).to eq(structure_floor_path(@structure_1, @structure_1))
+    expect(page).to have_content("Floor 1")
   end
 end
