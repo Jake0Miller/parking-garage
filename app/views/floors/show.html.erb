@@ -3,7 +3,7 @@
 </div><br>
 
 <section class="details-card">
-  <% @floor[0].rows.each do |row| %>
+  <% @floor.rows.each do |row| %>
     <% row.spots.each do |spot| %>
       <% if spot.vehicle.nil? %>
         ⒳
@@ -21,8 +21,8 @@
 <% if current_user && !admin? %>
   <section class="details-card">
     Select your vehicle to reserve a parking spot:<br>
-    <%= link_to 'Motorcycle', floors_park_motorcycle_path(@floor) %><br>
-    <%= link_to 'Car', floors_park_car_path(@floor) %><br>
-    <%= link_to 'Bus', floors_park_bus_path(@floor) %>
+    <a href="/floors/<%= @floor.id %>/motorcycles/new">🏍</a><br>
+    <a href="/floors/<%= @floor.id %>/cars/new">🚗</a><br>
+    <a href="/floors/<%= @floor.id %>/buses/new">🚌</a><br>
   </section>
 <% end %>
