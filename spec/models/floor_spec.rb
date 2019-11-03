@@ -20,9 +20,10 @@ RSpec.describe Floor, type: :model do
       expect(Floor.count).to eq(6)
 
       floor = structure_1.floors.new(level: 1, width: 10, length: 10)
+
       expect(floor).to_not be_valid
       expect(floor.errors[:level]).to include("has already been taken")
-
+      expect(floor.save).to eq(false)
       expect(Floor.count).to eq(6)
     end
   end

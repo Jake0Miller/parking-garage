@@ -25,7 +25,7 @@ RSpec.describe Spot, type: :model do
       spot = row_2.spots.new(number: 1, width: 3)
       expect(spot).to_not be_valid
       expect(spot.errors[:number]).to include("has already been taken")
-
+      expect(spot.save).to eq(false)
       expect(Spot.count).to eq(2)
     end
   end

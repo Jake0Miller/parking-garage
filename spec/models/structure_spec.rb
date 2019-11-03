@@ -25,6 +25,8 @@ RSpec.describe Structure, type: :model do
       structure_1 = Structure.create!(name: 'One', height: 3, width: 10, length: 10)
       structure_2 = Structure.new(name: 'One', height: 3, width: 10, length: 10)
 
+      expect(structure_2).to_not be_valid
+      expect(structure_2.errors[:name]).to include("has already been taken")
       expect(structure_2.save).to eq(false)
       expect(Structure.count).to eq(1)
       expect(Floor.count).to eq(3)
