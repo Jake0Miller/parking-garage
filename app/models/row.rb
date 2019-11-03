@@ -12,25 +12,27 @@ class Row < ApplicationRecord
   def create_spots
     number = 1
     remaining = self.length
-    
+
     if remaining >= 20
-      5.times do |i|
+      5.times do |_|
         self.spots.create(number: number, width: 4)
         number += 1
         remaining -= 4
       end
     end
+    
+    if (remaining-2) % 3 == 0
+      self.spots.create(number: number, width: 2)
+      number += 1
+      remaining -= 2
+    end
 
-    if remaining > 10 && (remaining-4) % 3 == 0
-      2.times do |i|
+    if (remaining-4) % 3 == 0
+      2.times do |_|
         self.spots.create(number: number, width: 2)
         number += 1
         remaining -= 2
       end
-    else
-      self.spots.create(number: number, width: 2)
-      number += 1
-      remaining -= 2
     end
 
     while remaining > 2

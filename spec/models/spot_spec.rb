@@ -17,15 +17,15 @@ RSpec.describe Spot, type: :model do
       floor_1 = structure.floors.first
       row_1 = floor_1.rows.first
 
-      expect(row_1.spots.length).to eq(3)
-      expect(Spot.count).to eq(18)
+      expect(row_1.spots.length).to eq(4)
+      expect(Spot.count).to eq(24)
 
       spot = row_1.spots.new(number: 1, width: 2)
 
       expect(spot).to_not be_valid
       expect(spot.errors[:number]).to include("has already been taken")
       expect(spot.save).to eq(false)
-      expect(Spot.count).to eq(18)
+      expect(Spot.count).to eq(24)
     end
   end
 end
