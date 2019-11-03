@@ -1,0 +1,33 @@
+<div class="row justify-content-center" style="margin-top:30px;">
+  <div class="card text-center" style="width: 30rem;">
+    <div class="card-header">
+      <h1 class='title'>New Structure</h1>
+    </div>
+
+    <div class="card-body">
+      <p class="card-text">
+        <%= form_for @structure do |f| %>
+          <%= f.label :name, class: "text-center" %>
+          <%= f.text_field :name, class: "form-control" %><br>
+
+          <%= f.label :height, class: "text-center" %>
+          <select class="form-control form-control-lg"
+            <%= f.collection_select :height, (1..10), :to_s, :to_s %>
+          </select><br>
+
+          <%= f.label :width, class: "text-center" %>
+          <select class="form-control form-control-lg"
+            <%= f.collection_select :width, (1..10), :to_s, :to_s %>
+          </select><br>
+
+          <%= f.label :length, class: "text-center" %>
+          <select class="form-control form-control-lg"
+            <%= f.collection_select :length, (1..50), :to_s, :to_s %>
+          </select><br>
+
+          <%= f.submit 'Create Structure', class: "mt2 btn btn-primary mb1 bg-teal" %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
