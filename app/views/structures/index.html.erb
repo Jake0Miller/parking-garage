@@ -1,7 +1,17 @@
-<h1>Select a Parking Structure</h1>
+<div class='title'>
+  <h1>Select a Parking Structure</h1>
+</div>
 
-<% @structures.each do |structure| %>
-  <div class="building-<%= structure.id %>">
-    <h2 class="building">Name: <%= link_to structure.name, structure_path(structure) %></h2>
+<section class="details-card">
+  <div class="container-fluid">
+    <% @structures.each do |structure| %>
+      <div class="card-content building">
+        <div class="building-<%= structure.id %>">
+          <div class="card-header">
+            <h2 class="card-title text-center">Name: <%= link_to structure.name, structure_path(structure) %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</section>
