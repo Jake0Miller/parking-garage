@@ -13,7 +13,7 @@ RSpec.describe Row, type: :model do
 
   describe 'Uniqueness' do
     it 'cannot have two rows on the same floor with the same letter' do
-      structure = Structure.create!(name: 'One', height: 2, width: 3, length: 10)
+      structure = Structure.create!(name: 'One', height: 2, width: 3, length: 11)
 
       expect(Row.count).to eq(6)
 
