@@ -5,7 +5,11 @@ class Admin::StructuresController < ApplicationController
 
   def create
     structure = Structure.new(structure_params)
-    redirect_to structures_path
+    if structure.save
+      redirect_to structures_path
+    else
+      redirect_to new_admin_structure_path
+    end
   end
 
   private
