@@ -8,7 +8,7 @@ class Floor < ApplicationRecord
 
   def create_rows
     self.width.times do |i|
-      self.rows.create(letter: (i+64).chr, length: self.length)
+      self.rows.create(letter: (i+65).chr, length: self.length)
     end
   end
 end
