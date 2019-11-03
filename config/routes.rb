@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     resources :structures, only: [:new, :create]
   end
 
+  namespace :floors do
+    get '/:id/motorcycle/new', to: 'motorcycles#new', as: :park_motorcycle
+    get '/:id/car/new', to: 'cars#new', as: :park_car
+    get '/:id/bus/new', to: 'buss#new', as: :park_bus
+  end
+
   get '/login', to: 'sessions#create', as: :login
   get '/logout', to: 'sessions#destroy', as: :logout
 
