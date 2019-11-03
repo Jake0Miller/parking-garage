@@ -18,4 +18,17 @@ RSpec.describe Structure, type: :model do
   describe 'Relationships' do
     it {should have_many :floors}
   end
+
+  describe 'Instance methods' do
+    before :each do
+      @structure_1 = Structure.create!(name: 'Building A',
+        height: 5, width: 10, length: 100,
+        m_fare: 5, c_fare: 10, b_fare: 25,
+        m_revenue: 100, c_revenue: 150, b_revenue: 125)
+    end
+
+    it 'can get total revenue' do
+      expect(@structure_1.total_revenue).to eq(375)
+    end
+  end
 end
