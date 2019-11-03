@@ -1,7 +1,7 @@
 <div class="title">
   <h1>Floor <%= @level %></h1>
-</div>
-<br>
+</div><br>
+
 <section class="details-card">
   <% @floor[0].rows.each do |row| %>
     <% row.spots.each do |spot| %>
@@ -17,3 +17,10 @@
     <% end %><br><br>
   <% end %>
 </section>
+
+<% if current_user && !admin? %>
+  <section class="details-card">
+    Select your vehicle to reserve a parking spot:<br>
+    🏍 🚗 🚌
+  </section>
+<% end %>
