@@ -4,10 +4,10 @@
 
 <section class="details-card">
   <% @floor.rows.each do |row| %>
-    <p>Row <%= row.letter %></p>
+    Row <%= row.letter %>:
     <% row.spots.each do |spot| %>
       <% if spot.vehicle.nil? %>
-        ⒳
+        <%= spot.empty_icon %>
       <% elsif spot.vehicle.width == 2 %>
         🏍
       <% elsif spot.vehicle.width == 3 %>
@@ -17,6 +17,12 @@
       <% end %>
     <% end %><br><br>
   <% end %>
+</section>
+
+<section class="details-card">
+  <p>M = Motorcycle, C = Compact, L = Large</p>
+  <p>Vehicle icons are occupied spaces</p>
+  <br>
 </section>
 
 <% if current_user && !admin? %>
