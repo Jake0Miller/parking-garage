@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Structure, type: :model do
   describe 'Validations' do
     it {should validate_presence_of :name}
-    it {should validate_uniqueness_of :name}
     it {should validate_presence_of :height}
     it {should validate_presence_of :width}
     it {should validate_presence_of :length}
@@ -17,6 +16,19 @@ RSpec.describe Structure, type: :model do
 
   describe 'Relationships' do
     it {should have_many :floors}
+  end
+
+  describe 'Uniqueness' do
+    it 'cannot have two buildings with the same name' do
+      expect(Structure.count).to eq(0)
+
+      structure_1 = Structure.create!(name: 'One', height: 3, width: 10, length: 10)
+      structure_2 = Structure.new(name: 'One', height: 3, width: 10, length: 10)
+
+      expect(structure_2.save).to eq(false)
+      expect(Structure.count).to eq(1)
+      expect(Floor.count).to eq(3)
+    end
   end
 
   describe 'Instance methods' do

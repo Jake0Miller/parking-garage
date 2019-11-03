@@ -15,17 +15,15 @@ RSpec.describe Floor, type: :model do
   describe 'Uniqueness' do
     it 'cannot have two floors on the same level' do
       structure_1 = Structure.create!(name: 'One', height: 3, width: 10, length: 10)
-      structure_1.floors.create!(level: 1, width: 10, length: 10)
       structure_2 = Structure.create!(name: 'Two', height: 3, width: 10, length: 10)
-      structure_2.floors.create!(level: 1, width: 10, length: 10)
 
-      expect(Floor.count).to eq(2)
+      expect(Floor.count).to eq(6)
 
       floor = structure_1.floors.new(level: 1, width: 10, length: 10)
       expect(floor).to_not be_valid
       expect(floor.errors[:level]).to include("has already been taken")
 
-      expect(Floor.count).to eq(2)
+      expect(Floor.count).to eq(6)
     end
   end
 end

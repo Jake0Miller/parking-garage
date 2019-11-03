@@ -33,6 +33,7 @@ RSpec.describe 'Structures create' do
     expect(Structure.count).to eq(1)
     expect(current_path).to eq(structures_path)
     expect(page).to have_content(@name)
+    expect(Floor.count).to eq(@height)
   end
 
   it 'I can create a structure with all fields an admin' do
@@ -60,6 +61,7 @@ RSpec.describe 'Structures create' do
     expect(Structure.count).to eq(1)
     expect(current_path).to eq(structures_path)
     expect(page).to have_content(@name)
+    expect(Floor.count).to eq(@height)
   end
 
   it 'A visitor cannot create a structure' do
@@ -75,6 +77,7 @@ RSpec.describe 'Structures create' do
     page.driver.submit :post, admin_structures_path(@ramen), {}
 
     expect(current_path).to eq(root_path)
+    expect(Floor.count).to eq(0)
   end
 
   it 'I cannot create a structure with fields missing' do
@@ -100,5 +103,6 @@ RSpec.describe 'Structures create' do
 
     expect(Structure.count).to eq(0)
     expect(current_path).to eq(new_admin_structure_path)
+    expect(Floor.count).to eq(0)
   end
 end
