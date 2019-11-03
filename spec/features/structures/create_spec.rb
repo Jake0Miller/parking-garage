@@ -5,7 +5,7 @@ RSpec.describe 'Structures create' do
     @name = 'Building A'
     @height = 6
     @width = 2
-    @length = 100
+    @length = 40
   end
 
   it 'I can create a structure as an admin' do
@@ -21,11 +21,11 @@ RSpec.describe 'Structures create' do
     expect(current_path).to eq(new_structure_path)
 
     fill_in 'Name', with: @name
-    fill_in 'Height', with: @height
-    fill_in 'Width', with: @width
-    fill_in 'Length', with: @length
+    select @height, :from => "structure[height]"
+    select @width, :from => "structure[width]"
+    select @length, :from => "structure[length]"
 
-    expect(Structure.count).to eq(0)
+    expect(Structure.count).to eq(1)
     expect(current_path).to eq(structures_path)
     expect(page).to have_content(@name)
   end

@@ -12,18 +12,26 @@
 
           <%= f.label :height, class: "text-center" %>
           <select class="form-control form-control-lg"
-            <%= f.collection_select :height, (1..10), :to_s, :to_s %>
-          </select><br>
+          <%= f.collection_select :height, (1..10), :to_s, :to_s %><br>
 
           <%= f.label :width, class: "text-center" %>
           <select class="form-control form-control-lg"
-            <%= f.collection_select :width, (1..10), :to_s, :to_s %>
-          </select><br>
+          <%= f.collection_select :width, (1..10), :to_s, :to_s %><br>
 
           <%= f.label :length, class: "text-center" %>
           <select class="form-control form-control-lg"
-            <%= f.collection_select :length, (1..50), :to_s, :to_s %>
-          </select><br>
+          <%= f.collection_select :length, (1..50), :to_s, :to_s %><br>
+
+          <h3>Set Fare</h3>
+
+          <%= f.label 'Motorcycle', class: "text-center" %>
+          <%= f.number_field :m_fare, step: 0.01, min: 0, class: 'form-control' %><br>
+
+          <%= f.label 'Car', class: "text-center" %>
+          <%= f.number_field :c_fare, step: 0.01, min: 0, class: 'form-control' %><br>
+
+          <%= f.label 'Bus', class: "text-center" %>
+          <%= f.number_field :b_fare, step: 0.01, min: 0, class: 'form-control' %><br>
 
           <%= f.submit 'Create Structure', class: "mt2 btn btn-primary mb1 bg-teal" %>
         <% end %>
