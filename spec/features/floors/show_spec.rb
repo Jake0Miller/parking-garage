@@ -25,13 +25,16 @@ RSpec.describe 'Floor show' do
     expect(current_path).to eq(structure_floor_path(@structure_1, @structure_1))
     expect(page).to have_content("Floor 1")
     expect(page).to have_content('Select your vehicle to reserve a parking spot:')
+    expect(page).to have_link('Motorcycle')
+    expect(page).to have_link('Car')
+    expect(page).to have_link('Bus')
   end
 
   it 'I can see a structure as an admin' do
     visit root_path
 
     click_on 'Parking Visitor'
-    
+
     visit structure_path(@structure_1)
 
     expect(page).to have_content(@structure_1.name)
