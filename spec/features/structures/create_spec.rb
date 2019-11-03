@@ -25,8 +25,8 @@ RSpec.describe 'Structures create' do
     fill_in 'Width', with: @width
     fill_in 'Length', with: @length
 
+    expect(Structure.count).to eq(0)
     expect(current_path).to eq(structures_path)
-
     expect(page).to have_content(@name)
   end
 end
