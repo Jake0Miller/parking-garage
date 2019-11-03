@@ -14,7 +14,7 @@ RSpec.describe Floor, type: :model do
 
   describe 'Uniqueness' do
     it 'cannot have two floors on the same level' do
-      structure_1 = Structure.create!(name: 'One', height: 2, width: 3, length: 10)
+      structure_1 = Structure.create!(name: 'One', height: 2, width: 3, length: 30)
       structure_2 = Structure.create!(name: 'Two', height: 2, width: 3, length: 10)
 
       expect(Floor.count).to eq(4)
