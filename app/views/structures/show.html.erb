@@ -5,3 +5,7 @@
 <img src="http://clipart-library.com/img/1319776.gif">
 
 <h2>Number of Floors: <%= @structure.height %></h2>
+
+<% if admin? %>
+  <h3>Total Revenue: <%= number_to_currency(@structure.total_revenue) %></h3>
+<% end %>
