@@ -3,15 +3,27 @@
   <img src="http://clipart-library.com/img/1319776.gif">
 </div>
 
-<h2>Number of Floors: <%= @structure.height %></h2>
+<section class="details-card">
+  <div class="container-fluid">
+    <div class="card-content">
+      <div class="card-header">
+        <h2 class="card-title text-center">Number of Floors: <%= @structure.height %></h2>
+      </div>
 
-<% if admin? %>
-  <h3>Parking Rates:</h3>
-  <h4>Motorcycle: <%= number_to_currency(@structure.m_fare) %></h4>
-  <h4>Car: <%= number_to_currency(@structure.c_fare) %></h4>
-  <h4>Bus: <%= number_to_currency(@structure.b_fare) %></h4>
-  <h3>Total Revenue: <%= number_to_currency(@structure.total_revenue) %></h3>
-  <h4>Motorcycle Revenue: <%= number_to_currency(@structure.m_revenue) %></h4>
-  <h4>Car Revenue: <%= number_to_currency(@structure.c_revenue) %></h4>
-  <h4>Bus Revenue: <%= number_to_currency(@structure.b_revenue) %></h4>
-<% end %>
+      <% if admin? %>
+        <div class="card-header">
+          <h3>Parking Rates:</h3>
+          <h4>Motorcycle: <%= number_to_currency(@structure.m_fare) %></h4>
+          <h4>Car: <%= number_to_currency(@structure.c_fare) %></h4>
+          <h4>Bus: <%= number_to_currency(@structure.b_fare) %></h4>
+        </div>
+        <div class="card-header">
+          <h3>Total Revenue: <%= number_to_currency(@structure.total_revenue) %></h3>
+          <h4>Motorcycle Revenue: <%= number_to_currency(@structure.m_revenue) %></h4>
+          <h4>Car Revenue: <%= number_to_currency(@structure.c_revenue) %></h4>
+          <h4>Bus Revenue: <%= number_to_currency(@structure.b_revenue) %></h4>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
