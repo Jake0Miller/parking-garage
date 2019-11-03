@@ -18,12 +18,14 @@ RSpec.describe 'Structures create' do
       click_on 'Build'
     end
 
-    expect(current_path).to eq(new_structure_path)
+    expect(current_path).to eq(new_admin_structure_path)
 
     fill_in 'Name', with: @name
     select @height, :from => "structure[height]"
     select @width, :from => "structure[width]"
     select @length, :from => "structure[length]"
+
+    click_on 'Create Structure'
 
     expect(Structure.count).to eq(1)
     expect(current_path).to eq(structures_path)

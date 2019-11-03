@@ -6,8 +6,4 @@ class StructuresController < ApplicationController
   def show
     @structure = Structure.find(params[:id])
   end
-
-  def new
-    @structure = Structure.new
-  end
 end

@@ -6,7 +6,7 @@
 
     <div class="card-body">
       <p class="card-text">
-        <%= form_for @structure do |f| %>
+        <%= form_for [:admin, @structure] do |f| %>
           <%= f.label :name, class: "text-center" %>
           <%= f.text_field :name, class: "form-control" %><br>
 
@@ -33,7 +33,7 @@
           <%= f.label 'Bus', class: "text-center" %>
           <%= f.number_field :b_fare, step: 0.01, min: 0, class: 'form-control' %><br>
 
-          <%= f.submit 'Create Structure', class: "mt2 btn btn-primary mb1 bg-teal" %>
+          <%= f.submit 'Create Structure', class: "btn btn-primary" %>
         <% end %>
       </p>
     </div>
