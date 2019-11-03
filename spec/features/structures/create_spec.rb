@@ -76,4 +76,29 @@ RSpec.describe 'Structures create' do
 
     expect(current_path).to eq(root_path)
   end
+
+  it 'I cannot create a structure with fields missing' do
+    expect(Structure.count).to eq(0)
+    visit root_path
+
+    click_on 'Parking Admin'
+
+    within 'nav' do
+      click_on 'Build'
+    end
+
+    expect(current_path).to eq(new_admin_structure_path)
+
+    select @height, :from => "structure[height]"
+    select @width, :from => "structure[width]"
+    select @length, :from => "structure[length]"
+    fill_in "structure[m_fare]", with: @m_fare
+    fill_in "structure[c_fare]", with: @c_fare
+    fill_in "structure[b_fare]", with: @b_fare
+
+    click_on 'Create Structure'
+
+    expect(Structure.count).to eq(0)
+    expect(current_path).to eq(new_admin_structure_path)
+  end
 end
