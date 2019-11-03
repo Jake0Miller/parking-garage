@@ -18,7 +18,7 @@ A Row has one dimension: length. In the database, a Row has many Spots and belon
 
 A Spot has one of the following widths: 2 for motorcycle, 3 for compact, 4 for large. In the database, a Spot belongs to a Vehicle (nil if not currently occupied). Each spot has a unique number identifying its position in its row.
 
-A Vehicle has one of the following widths: 2 for motorcycle, 3 for car, 4 for bus. In the database, a Vehicle has one spot if it is a motorcycle or a car, and has many spots (5) if it is a bus.
+A Vehicle occupies one of the following widths: 2 for motorcycle, 3 for car, 20 for bus. In the database, a Vehicle has one spot if it is a motorcycle or a car, and has many spots (5) if it is a bus.
 
 A Structure can track the total fare it receives from motorcycles, cars, and buses. The owner can use this information to determine whether they should redistribute the number of parking spots allocated for each type of vehicle.
 
