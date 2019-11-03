@@ -31,7 +31,7 @@ RSpec.describe 'Structures index' do
     expect(page).to have_css('.building', count: 3)
 
     within ".building-#{@structure_1.id}" do
-      expect(page).to have_content("Name: " + @structure_1.name)
+      expect(page).to have_content(@structure_1.name)
       expect(page).to have_link(@structure_1.name)
     end
   end
@@ -51,7 +51,7 @@ RSpec.describe 'Structures index' do
     expect(page).to have_css('.building', count: 3)
 
     within ".building-#{@structure_1.id}" do
-      expect(page).to have_content("Name: " + @structure_1.name)
+      expect(page).to have_content(@structure_1.name)
       expect(page).to have_link(@structure_1.name)
     end
   end
