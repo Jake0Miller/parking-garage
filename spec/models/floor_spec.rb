@@ -10,6 +10,7 @@ RSpec.describe Floor, type: :model do
   describe 'Relationships' do
     it {should belong_to :structure}
     it {should have_many :rows}
+    it {should have_many(:spots).through(:rows)}
   end
 
   describe 'Uniqueness' do

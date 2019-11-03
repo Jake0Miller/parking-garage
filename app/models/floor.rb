@@ -3,6 +3,7 @@ class Floor < ApplicationRecord
   validates_uniqueness_of :level, scope: :structure
   belongs_to :structure
   has_many :rows
+  has_many :spots, through: :rows
 
   after_create :create_rows
 
