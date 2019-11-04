@@ -8,6 +8,15 @@ class Floors::MotorcyclesController < ApplicationController
       structure = floor.structure
       structure.m_revenue += structure.m_fare
       structure.save
+    else
+      c_spot = floor.spots.find {|spot| spot.vehicle_id.nil? && spot.width == 3}
+      if c_spot
+        c_spot.vehicle = Vehicle.create(width: 2)
+        c_spot.save
+        structure = floor.structure
+        structure.m_revenue += structure.m_fare
+        structure.save
+      end
     end
     redirect_to floor_path(floor)
   end
