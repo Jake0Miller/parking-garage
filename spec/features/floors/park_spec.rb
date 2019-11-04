@@ -51,6 +51,20 @@ RSpec.describe 'Park vehicles' do
 
     expect(@structure_1.reload.m_revenue).to eq(135)
     expect(page).to have_content('Row A: L L L L L 🏍 🏍 🏍 C Row B: L L L L L 🏍 🏍 C C Row C: L L L L L 🏍 🏍 C C')
+
+    5.times do |_|
+      click_on '🏍'
+    end
+
+    expect(@structure_1.reload.m_revenue).to eq(160)
+    expect(page).to have_content('Row A: L L L L L 🏍 🏍 🏍 🏍 Row B: L L L L L 🏍 🏍 🏍 🏍 Row C: L L L L L 🏍 🏍 🏍 🏍')
+
+    15.times do |_|
+      click_on '🏍'
+    end
+
+    expect(@structure_1.reload.m_revenue).to eq(235)
+    expect(page).to have_content('Row A: 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 Row B: 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 Row C: 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍')
   end
 
   it 'I can park a car' do
