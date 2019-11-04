@@ -27,9 +27,12 @@ RSpec.describe 'Floor show' do
     expect(page).to have_content("M = Motorcycle, C = Compact, L = Large")
     expect(page).to have_content("Vehicle icons are occupied spaces")
     expect(page).to have_content('Select your vehicle to reserve a parking spot:')
-    expect(page).to have_link('🏍')
-    expect(page).to have_link('🚗')
-    expect(page).to have_link('🚌')
+
+    within '.add' do
+      expect(page).to have_link('🏍')
+      expect(page).to have_link('🚗')
+      expect(page).to have_link('🚌')
+    end
   end
 
   it 'I can see a structure as an admin' do

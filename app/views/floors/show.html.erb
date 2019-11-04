@@ -23,7 +23,7 @@
 </section>
 
 <% if current_user && !admin? %>
-  <section class="details-card">
+  <section class="details-card add">
     Select your vehicle to reserve a parking spot:<br>
     <a href="/floors/<%= @floor.id %>/motorcycles/new">🏍</a><br>
     <a href="/floors/<%= @floor.id %>/cars/new">🚗</a><br>
