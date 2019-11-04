@@ -12,4 +12,10 @@ class Floor < ApplicationRecord
       self.rows.create(letter: (i+65).chr, length: self.length)
     end
   end
+
+  def find_bus_parking
+    b_spot = self.spots.find_all {|spot| spot.vehicle_id.nil? && spot.width == 4}
+    b_spot = b_spot.group_by {|spot| spot.row_id}
+    b_spot.find {|key,val| val.length == 5}
+  end
 end
