@@ -66,6 +66,36 @@ RSpec.describe 'Park vehicles' do
 
     expect(@structure_1.reload.c_revenue).to eq(160)
     expect(page).to have_content('Row A: L L L L L M M 🚗 C Row B: L L L L L M M C C Row C: L L L L L M M C C')
+
+    click_on '🚗'
+
+    expect(@structure_1.reload.c_revenue).to eq(170)
+    expect(page).to have_content('Row A: L L L L L M M 🚗 🚗 Row B: L L L L L M M C C Row C: L L L L L M M C C')
+
+    click_on '🚗'
+
+    expect(@structure_1.reload.c_revenue).to eq(180)
+    expect(page).to have_content('Row A: L L L L L M M 🚗 🚗 Row B: L L L L L M M 🚗 C Row C: L L L L L M M C C')
+
+    click_on '🚗'
+
+    expect(@structure_1.reload.c_revenue).to eq(190)
+    expect(page).to have_content('Row A: L L L L L M M 🚗 🚗 Row B: L L L L L M M 🚗 🚗 Row C: L L L L L M M C C')
+
+    click_on '🚗'
+
+    expect(@structure_1.reload.c_revenue).to eq(200)
+    expect(page).to have_content('Row A: L L L L L M M 🚗 🚗 Row B: L L L L L M M 🚗 🚗 Row C: L L L L L M M 🚗 C')
+
+    click_on '🚗'
+
+    expect(@structure_1.reload.c_revenue).to eq(210)
+    expect(page).to have_content('Row A: L L L L L M M 🚗 🚗 Row B: L L L L L M M 🚗 🚗 Row C: L L L L L M M 🚗 🚗')
+
+    click_on '🚗'
+
+    expect(@structure_1.reload.c_revenue).to eq(220)
+    expect(page).to have_content('Row A: 🚗 L L L L M M 🚗 🚗 Row B: L L L L L M M 🚗 🚗 Row C: L L L L L M M 🚗 🚗')
   end
 
   it 'I can park a bus' do
