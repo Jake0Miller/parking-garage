@@ -43,6 +43,16 @@ Run tests with
 * PostgreSQL v11.5
 * RSpec testing suite
 
+# Future Iterations
+
+Allow admin users to track revenue day-to-day.
+
+Allow admin users to reallocate parking spots. For example, they may want to add more compact spots in place of large spots if revenue trends indicate that would increase overall revenue.
+
+Allow visitors to select the spot(s) they would like to reserve.
+
+Implement parking rates on hourly, daily, and monthly basis.
+
 # Core Contributors
 
 [Jake Miller](https://github.com/Jake0Miller)
