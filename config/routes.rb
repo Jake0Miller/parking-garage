@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   namespace :floors do
     get '/:id/motorcycles/new', to: 'motorcycles#new', as: :park_motorcycle
     get '/:id/cars/new', to: 'cars#new', as: :park_car
-    get '/:id/buses/new', to: 'buss#new', as: :park_bus
+    get '/:id/buses/new', to: 'buses#new', as: :park_bus
   end
 
   get '/login', to: 'sessions#create', as: :login
