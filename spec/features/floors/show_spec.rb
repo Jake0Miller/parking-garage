@@ -29,7 +29,6 @@ RSpec.describe 'Floor show' do
     expect(page).to have_link('🏍')
     expect(page).to have_link('🚗')
     expect(page).to have_link('🚌')
-    save_and_open_page
   end
 
   it 'I can see a structure as an admin' do
