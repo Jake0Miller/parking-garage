@@ -3,6 +3,8 @@
 </div><br>
 
 <section class="details-card">
+  <p>Click a vehicle if you'd like to check out</p>
+  
   <% @floor.rows.each do |row| %>
     Row <%= row.letter %>:
     <% row.spots.sort_by(&:number).each do |spot| %>
