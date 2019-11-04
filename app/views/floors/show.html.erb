@@ -6,11 +6,13 @@
   <% @floor.rows.each do |row| %>
     Row <%= row.letter %>:
     <% row.spots.sort_by(&:number).each do |spot| %>
-      <% if spot.vehicle_id.nil? %>
-        <%= spot.render %>
-      <% else %>
-        <a href="/spots/<%= spot.id %>/destroy"><%= spot.render %></a>
-      <% end %>
+      <div class="spot<%= spot.id %>">
+        <% if spot.vehicle_id.nil? %>
+          <%= spot.render %>
+        <% else %>
+          <a href="/spots/<%= spot.id %>/destroy"><%= spot.render %></a>
+        <% end %>
+      </div>
     <% end %><br><br>
   <% end %>
 </section>
