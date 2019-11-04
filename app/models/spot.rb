@@ -9,4 +9,16 @@ class Spot < ApplicationRecord
     return 'C' if self.width == 3
     return 'L' if self.width == 4
   end
+
+  def render
+    if self.vehicle.nil?
+      self.empty_icon
+    elsif self.vehicle.width == 2
+      '🏍'
+    elsif self.vehicle.width == 3
+      '🚗'
+    elsif self.vehicle.width == 4
+      '🚌'
+    end
+  end
 end

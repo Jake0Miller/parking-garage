@@ -18,7 +18,7 @@ RSpec.describe 'Floor show' do
     expect(page).to have_content(@structure_1.name)
     expect(page).to have_content("Number of Floors: #{@structure_1.height}")
 
-    select '1', :from => "floor"
+    select '1', :from => "floor[id]"
 
     click_on 'View'
 
@@ -29,7 +29,6 @@ RSpec.describe 'Floor show' do
     expect(page).to have_link('🏍')
     expect(page).to have_link('🚗')
     expect(page).to have_link('🚌')
-    save_and_open_page
   end
 
   it 'I can see a structure as an admin' do
@@ -42,7 +41,7 @@ RSpec.describe 'Floor show' do
     expect(page).to have_content(@structure_1.name)
     expect(page).to have_content("Number of Floors: #{@structure_1.height}")
 
-    select '1', :from => "floor"
+    select '1', :from => "floor[id]"
 
     click_on 'View'
 

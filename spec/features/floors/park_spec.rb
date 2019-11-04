@@ -12,18 +12,22 @@ RSpec.describe 'Park vehicles' do
     visit root_path
     click_on 'Parking Visitor'
     visit structure_path(@structure_1)
-    select '1', :from => "floor"
+    select '1', :from => "floor[id]"
     click_on 'View'
+
+    expect(page).to have_content('Row A: M M C C')
+
     click_on '🏍'
 
-    expect(@structure_1.m_revenue).to eq(105)
+    expect(@structure_1.reload.m_revenue).to eq(105)
+    expect(page).to have_content('Row A: 🏍 M C C')
   end
 
   it 'I can park a car' do
     visit root_path
     click_on 'Parking Visitor'
     visit structure_path(@structure_1)
-    select '1', :from => "floor"
+    select '1', :from => "floor[id]"
     click_on 'View'
     click_on '🚗'
   end
@@ -32,7 +36,7 @@ RSpec.describe 'Park vehicles' do
     visit root_path
     click_on 'Parking Visitor'
     visit structure_path(@structure_1)
-    select '1', :from => "floor"
+    select '1', :from => "floor[id]"
     click_on 'View'
     click_on '🚌'
   end
