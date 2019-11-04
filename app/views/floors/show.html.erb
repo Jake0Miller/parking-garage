@@ -5,16 +5,8 @@
 <section class="details-card">
   <% @floor.rows.each do |row| %>
     Row <%= row.letter %>:
-    <% row.spots.each do |spot| %>
-      <% if spot.vehicle.nil? %>
-        <%= spot.empty_icon %>
-      <% elsif spot.vehicle.width == 2 %>
-        🏍
-      <% elsif spot.vehicle.width == 3 %>
-        🚗
-      <% elsif spot.vehicle.width == 4 %>
-        🚌
-      <% end %>
+    <% row.spots.sort_by(&:number).each do |spot| %>
+      <%= spot.render %>
     <% end %><br><br>
   <% end %>
 </section>
