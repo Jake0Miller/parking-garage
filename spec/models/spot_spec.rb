@@ -28,4 +28,16 @@ RSpec.describe Spot, type: :model do
       expect(Spot.count).to eq(24)
     end
   end
+
+  describe 'Instance methods' do
+    before :each do
+      @structure = Structure.create!(name: 'One', height: 1, width: 1, length: 30)
+    end
+
+    it 'renders the spot type when empty' do
+      expect(Spot.first.empty_icon).to eq('L')
+      expect(Spot.last.empty_icon).to eq('C')
+      expect(Spot.all[5].empty_icon).to eq('M')
+    end
+  end
 end

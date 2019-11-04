@@ -8,8 +8,8 @@
     <div class="card-content">
       <div class="card-header">
         <h2 class="card-title text-center">Number of Floors: <%= @structure.height %></h2>
-        <%= form_for Floor.new, :url => structure_floor_path(@structure), method: :get do |f| %>
-          <%= f.collection_select :height, (1..@structure.height), :to_s, :to_s, selected: 1 %>
+        <%= form_with :url => floor_path, method: :get do |f| %>
+          <%= f.select :floor, @structure.floors.map {|x| [x.level, x.id]} %>
           <%= f.submit 'View', class: "btn btn-primary" %>
         <% end %>
       </div>

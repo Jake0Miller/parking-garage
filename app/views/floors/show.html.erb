@@ -1,12 +1,13 @@
 <div class="title">
-  <h1>Floor <%= @level %></h1>
-</div>
+  <h1>Floor <%= @floor.level %></h1>
+</div><br>
 
 <section class="details-card">
-  <% @floor[0].rows.each do |row| %>
+  <% @floor.rows.each do |row| %>
+    Row <%= row.letter %>:
     <% row.spots.each do |spot| %>
       <% if spot.vehicle.nil? %>
-        ⒳
+        <%= spot.empty_icon %>
       <% elsif spot.vehicle.width == 2 %>
         🏍
       <% elsif spot.vehicle.width == 3 %>
@@ -14,6 +15,21 @@
       <% elsif spot.vehicle.width == 4 %>
         🚌
       <% end %>
-    <% end %><br>
+    <% end %><br><br>
   <% end %>
 </section>
+
+<section class="details-card">
+  <p>M = Motorcycle, C = Compact, L = Large</p>
+  <p>Vehicle icons are occupied spaces</p>
+  <br>
+</section>
+
+<% if current_user && !admin? %>
+  <section class="details-card">
+    Select your vehicle to reserve a parking spot:<br>
+    <a href="/floors/<%= @floor.id %>/motorcycles/new">🏍</a><br>
+    <a href="/floors/<%= @floor.id %>/cars/new">🚗</a><br>
+    <a href="/floors/<%= @floor.id %>/buses/new">🚌</a><br>
+  </section>
+<% end %>

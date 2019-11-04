@@ -9,30 +9,43 @@ RSpec.describe 'Floor show' do
   end
 
   it 'I can see a floor as a visitor' do
+    visit root_path
+
+    click_on 'Parking Visitor'
+
     visit structure_path(@structure_1)
 
     expect(page).to have_content(@structure_1.name)
     expect(page).to have_content("Number of Floors: #{@structure_1.height}")
 
-    select '1', :from => "floor[height]"
+    select '1', :from => "floor"
 
     click_on 'View'
 
-    expect(current_path).to eq(structure_floor_path(@structure_1, @structure_1))
     expect(page).to have_content("Floor 1")
+    expect(page).to have_content("M = Motorcycle, C = Compact, L = Large")
+    expect(page).to have_content("Vehicle icons are occupied spaces")
+    expect(page).to have_content('Select your vehicle to reserve a parking spot:')
+    expect(page).to have_link('🏍')
+    expect(page).to have_link('🚗')
+    expect(page).to have_link('🚌')
+    save_and_open_page
   end
 
   it 'I can see a structure as an admin' do
+    visit root_path
+
+    click_on 'Parking Visitor'
+
     visit structure_path(@structure_1)
 
     expect(page).to have_content(@structure_1.name)
     expect(page).to have_content("Number of Floors: #{@structure_1.height}")
 
-    select '1', :from => "floor[height]"
+    select '1', :from => "floor"
 
     click_on 'View'
 
-    expect(current_path).to eq(structure_floor_path(@structure_1, @structure_1))
     expect(page).to have_content("Floor 1")
   end
 end
