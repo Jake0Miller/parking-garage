@@ -18,7 +18,7 @@ RSpec.describe 'Floor show' do
     expect(page).to have_content(@structure_1.name)
     expect(page).to have_content("Number of Floors: #{@structure_1.height}")
 
-    select '1', :from => "floor"
+    select '1', :from => "floor[id]"
 
     click_on 'View'
 
@@ -41,7 +41,7 @@ RSpec.describe 'Floor show' do
     expect(page).to have_content(@structure_1.name)
     expect(page).to have_content("Number of Floors: #{@structure_1.height}")
 
-    select '1', :from => "floor"
+    select '1', :from => "floor[id]"
 
     click_on 'View'
 

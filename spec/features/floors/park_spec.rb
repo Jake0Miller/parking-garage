@@ -12,7 +12,7 @@ RSpec.describe 'Park vehicles' do
     visit root_path
     click_on 'Parking Visitor'
     visit structure_path(@structure_1)
-    select '1', :from => "floor"
+    select '1', :from => "floor[id]"
     click_on 'View'
     click_on '🏍'
 
@@ -23,7 +23,7 @@ RSpec.describe 'Park vehicles' do
     visit root_path
     click_on 'Parking Visitor'
     visit structure_path(@structure_1)
-    select '1', :from => "floor"
+    select '1', :from => "floor[id]"
     click_on 'View'
     click_on '🚗'
   end
@@ -32,7 +32,7 @@ RSpec.describe 'Park vehicles' do
     visit root_path
     click_on 'Parking Visitor'
     visit structure_path(@structure_1)
-    select '1', :from => "floor"
+    select '1', :from => "floor[id]"
     click_on 'View'
     click_on '🚌'
   end
