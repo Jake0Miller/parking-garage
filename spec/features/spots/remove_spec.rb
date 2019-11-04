@@ -44,6 +44,10 @@ RSpec.describe 'Park vehicles' do
 
     expect(@structure_1.reload.c_revenue).to eq(160)
     expect(page).to have_content("Row A: L L L L L M M 🚗 C")
+
+    first('.spot').click
+
+    expect(page).to have_content("Row A: L L L L L M M C C")
   end
 
   it 'I can park and remove a bus' do
@@ -61,5 +65,9 @@ RSpec.describe 'Park vehicles' do
 
     expect(@structure_1.reload.b_revenue).to eq(150)
     expect(page).to have_content("Row A: 🚌 🚌 🚌 🚌 🚌 M M C C")
+
+    first('.spot').click
+
+    expect(page).to have_content("Row A: L L L L L M M C C")
   end
 end
