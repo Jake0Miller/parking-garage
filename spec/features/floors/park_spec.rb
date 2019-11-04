@@ -19,7 +19,7 @@ RSpec.describe 'Park vehicles' do
 
     click_on '🏍'
 
-    expect(@structure_1.reload.m_revenue).to eq(160)
+    expect(@structure_1.reload.m_revenue).to eq(105)
     expect(page).to have_content('Row A: 🏍 M C C')
   end
 
@@ -34,7 +34,7 @@ RSpec.describe 'Park vehicles' do
 
     click_on '🚗'
 
-    expect(@structure_1.reload.c_revenue).to eq(105)
+    expect(@structure_1.reload.c_revenue).to eq(160)
     expect(page).to have_content('Row A: M M 🚗 C')
   end
 
