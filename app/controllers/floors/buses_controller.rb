@@ -13,6 +13,8 @@ class Floors::BusesController < ApplicationController
       structure = floor.structure
       structure.b_revenue += structure.b_fare
       structure.save
+    else
+      flash[:error] = 'There is no more room for bus parking!'
     end
     redirect_to floor_path(floor)
   end
