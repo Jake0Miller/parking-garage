@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :structures, only: [:index, :show]
   resources :floors, only: [:show]
+  resources :spots, only: [:show]
 
   namespace :admin do
     resources :structures, only: [:new, :create]
