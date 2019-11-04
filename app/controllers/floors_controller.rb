@@ -1,6 +1,9 @@
 class FloorsController < ApplicationController
   def show
-    @level = params[:floor][:height]
-    @floor = Floor.where(level: @level, structure_id: params[:structure_id]).includes(:rows)[0]
+    if params.keys.include?("floor")
+      @floor = Floor.includes(:rows).find(params[:floor])
+    else
+      @floor = Floor.includes(:rows).find(params[:id])
+    end
   end
 end

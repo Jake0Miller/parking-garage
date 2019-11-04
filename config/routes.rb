@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/', to: 'welcome#index', as: :root
 
-  resources :structures, only: [:index, :show] do
-    resources :floors, only: [:show]
-  end
+  resources :structures, only: [:index, :show]
+  resources :floors, only: [:show]
 
   namespace :admin do
     resources :structures, only: [:new, :create]

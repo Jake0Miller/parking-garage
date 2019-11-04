@@ -18,11 +18,10 @@ RSpec.describe 'Floor show' do
     expect(page).to have_content(@structure_1.name)
     expect(page).to have_content("Number of Floors: #{@structure_1.height}")
 
-    select '1', :from => "floor[height]"
+    select '1', :from => "floor"
 
     click_on 'View'
 
-    expect(current_path).to eq(structure_floor_path(@structure_1, @structure_1))
     expect(page).to have_content("Floor 1")
     expect(page).to have_content('Select your vehicle to reserve a parking spot:')
     expect(page).to have_link('🏍')
@@ -40,11 +39,10 @@ RSpec.describe 'Floor show' do
     expect(page).to have_content(@structure_1.name)
     expect(page).to have_content("Number of Floors: #{@structure_1.height}")
 
-    select '1', :from => "floor[height]"
+    select '1', :from => "floor"
 
     click_on 'View'
-
-    expect(current_path).to eq(structure_floor_path(@structure_1, @structure_1))
+    
     expect(page).to have_content("Floor 1")
   end
 end
