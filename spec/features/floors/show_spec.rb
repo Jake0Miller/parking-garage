@@ -23,10 +23,13 @@ RSpec.describe 'Floor show' do
     click_on 'View'
 
     expect(page).to have_content("Floor 1")
+    expect(page).to have_content("M = Motorcycle, C = Compact, L = Large")
+    expect(page).to have_content("Vehicle icons are occupied spaces")
     expect(page).to have_content('Select your vehicle to reserve a parking spot:')
     expect(page).to have_link('🏍')
     expect(page).to have_link('🚗')
     expect(page).to have_link('🚌')
+    save_and_open_page
   end
 
   it 'I can see a structure as an admin' do
@@ -42,7 +45,7 @@ RSpec.describe 'Floor show' do
     select '1', :from => "floor"
 
     click_on 'View'
-    
+
     expect(page).to have_content("Floor 1")
   end
 end
