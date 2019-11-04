@@ -21,4 +21,16 @@ class Spot < ApplicationRecord
       '🚌'
     end
   end
+
+  def self.remove_vehicle(id)
+    spot = Spot.find(id)
+    vehicle = spot.vehicle
+    if vehicle.width == 4
+      spots = Spot.where(vehicle: vehicle)
+      spots.update_all(vehicle_id: nil)
+    else
+      spot.update(vehicle_id: nil)
+    end
+    vehicle.destroy
+  end
 end

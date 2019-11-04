@@ -3,27 +3,18 @@ class Floors::MotorcyclesController < ApplicationController
     floor = Floor.includes(:spots).find(params[:id])
     m_spot = floor.spots.find {|spot| spot.vehicle_id.nil? && spot.width == 2}
     if m_spot
-      m_spot.vehicle = Vehicle.create(width: 2)
-      m_spot.save
-      structure = floor.structure
-      structure.m_revenue += structure.m_fare
-      structure.save
+      m_spot.update_attributes(vehicle: Vehicle.create(width: 2))
+      floor.structure.incr_revenue('m')
     else
       c_spot = floor.spots.find {|spot| spot.vehicle_id.nil? && spot.width == 3}
       if c_spot
-        c_spot.vehicle = Vehicle.create(width: 2)
-        c_spot.save
-        structure = floor.structure
-        structure.m_revenue += structure.m_fare
-        structure.save
+        c_spot.update_attributes(vehicle: Vehicle.create(width: 2))
+        floor.structure.incr_revenue('m')
       else
         b_spot = floor.spots.find {|spot| spot.vehicle_id.nil? && spot.width == 4}
         if b_spot
-          b_spot.vehicle = Vehicle.create(width: 2)
-          b_spot.save
-          structure = floor.structure
-          structure.m_revenue += structure.m_fare
-          structure.save
+          b_spot.update_attributes(vehicle: Vehicle.create(width: 2))
+          floor.structure.incr_revenue('m')
         else
           flash[:error] = 'There is no more room for motorcycle parking!'
         end

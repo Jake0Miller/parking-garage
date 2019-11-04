@@ -16,4 +16,15 @@ class Structure < ApplicationRecord
       self.floors.create(level: i+1, width: self.width, length: self.length)
     end
   end
+
+  def incr_revenue(type)
+    if type == 'm'
+      self.m_revenue += self.m_fare
+    elsif type == 'c'
+      self.c_revenue += self.c_fare
+    elsif type == 'b'
+      self.b_revenue += self.b_fare
+    end
+    self.save
+  end
 end
