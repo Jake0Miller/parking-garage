@@ -96,6 +96,19 @@ RSpec.describe 'Park vehicles' do
 
     expect(@structure_1.reload.c_revenue).to eq(220)
     expect(page).to have_content('Row A: 🚗 L L L L M M 🚗 🚗 Row B: L L L L L M M 🚗 🚗 Row C: L L L L L M M 🚗 🚗')
+
+    14.times do |_|
+      click_on '🚗'
+    end
+
+    expect(@structure_1.reload.c_revenue).to eq(360)
+    expect(page).to have_content('Row A: 🚗 🚗 🚗 🚗 🚗 M M 🚗 🚗 Row B: 🚗 🚗 🚗 🚗 🚗 M M 🚗 🚗 Row C: 🚗 🚗 🚗 🚗 🚗 M M 🚗 🚗')
+
+    click_on '🚗'
+
+    expect(@structure_1.reload.c_revenue).to eq(360)
+    expect(page).to have_content('There is no more room for car parking!')
+    expect(page).to have_content('Row A: 🚗 🚗 🚗 🚗 🚗 M M 🚗 🚗 Row B: 🚗 🚗 🚗 🚗 🚗 M M 🚗 🚗 Row C: 🚗 🚗 🚗 🚗 🚗 M M 🚗 🚗')
   end
 
   it 'I can park a bus' do
