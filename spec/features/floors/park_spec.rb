@@ -65,6 +65,12 @@ RSpec.describe 'Park vehicles' do
 
     expect(@structure_1.reload.m_revenue).to eq(235)
     expect(page).to have_content('Row A: 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 Row B: 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 Row C: 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍')
+
+    click_on '🏍'
+
+    expect(@structure_1.reload.m_revenue).to eq(235)
+    expect(page).to have_content('There is no more room for motorcycle parking!')
+    expect(page).to have_content('Row A: 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 Row B: 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 Row C: 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍 🏍')
   end
 
   it 'I can park a car' do

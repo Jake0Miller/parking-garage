@@ -24,6 +24,8 @@ class Floors::MotorcyclesController < ApplicationController
           structure = floor.structure
           structure.m_revenue += structure.m_fare
           structure.save
+        else
+          flash[:error] = 'There is no more room for motorcycle parking!'
         end
       end
     end
