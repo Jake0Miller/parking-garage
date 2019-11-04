@@ -6,7 +6,11 @@
   <% @floor.rows.each do |row| %>
     Row <%= row.letter %>:
     <% row.spots.sort_by(&:number).each do |spot| %>
-      <%= spot.render %>
+      <% if spot.vehicle_id.nil? %>
+        <%= spot.render %>
+      <% else %>
+        <a class="spot" href="/floors/<%= @floor.id %>/spots/<%= spot.id %>"><%= spot.render %></a>
+      <% end %>
     <% end %><br><br>
   <% end %>
 </section>
@@ -14,11 +18,12 @@
 <section class="details-card">
   <p>M = Motorcycle, C = Compact, L = Large</p>
   <p>Vehicle icons are occupied spaces</p>
+  <p>Click a vehicle to remove it</p>
   <br>
 </section>
 
 <% if current_user && !admin? %>
-  <section class="details-card">
+  <section class="details-card add">
     Select your vehicle to reserve a parking spot:<br>
     <a href="/floors/<%= @floor.id %>/motorcycles/new">🏍</a><br>
     <a href="/floors/<%= @floor.id %>/cars/new">🚗</a><br>
