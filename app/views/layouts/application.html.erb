@@ -16,10 +16,18 @@
       <%= render '/layouts/nav_right' %>
     </nav>
 
-    <% flash.each do |key, value| %>
-      <div class="<%= flash_class(key) %>">
-        <%= value %>
-      </div>
+    <% if flash[:notice] %>
+    <div class="alert alert-success">
+       <%= flash[:notice] %>
+    </div>
+    <% elsif flash[:error] %>
+    <div class="alert alert-danger">
+       <%= flash[:error] %>
+    </div>
+    <% elsif flash[:alert] %>
+    <div class="alert alert-danger">
+       <%= flash[:alert] %>
+    </div>
     <% end %>
 
     <%= yield %>
